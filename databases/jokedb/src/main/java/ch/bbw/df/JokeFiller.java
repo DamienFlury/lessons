@@ -5,17 +5,11 @@ import java.sql.SQLException;
 
 public class JokeFiller {
     public static Joke getJoke(ResultSet entry) throws SQLException {
-        var joke = new Joke();
-        joke.setupJoke(
+        return new Joke(
                 entry.getInt("id"),
                 entry.getString("text"),
                 entry.getDate("date"),
                 entry.getInt("rating")
         );
-        return joke;
-    }
-
-    public static Joke createJokeObject(ResultSet entry) throws SQLException {
-        return getJoke(entry);
     }
 }

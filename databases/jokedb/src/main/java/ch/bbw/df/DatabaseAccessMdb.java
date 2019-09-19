@@ -15,7 +15,7 @@ public class DatabaseAccessMdb implements IDatabaseAccess {
         var rs = st.executeQuery("select * from joke");
         var result = new ArrayList<Joke>();
         while(rs.next()){
-            result.add(JokeFiller.getJoke(rs));
+            result.add(JokeFillerMdb.getJoke(rs));
         }
         return result;
     }

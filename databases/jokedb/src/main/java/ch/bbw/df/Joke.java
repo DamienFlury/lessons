@@ -8,7 +8,7 @@ public class Joke {
     private Date date;
     private int rating;
 
-    public void setupJoke(int id, String text, Date date, int rating) {
+    public Joke(int id, String text, Date date, int rating) {
         this.id = id;
         this.text = text;
         this.date = date;

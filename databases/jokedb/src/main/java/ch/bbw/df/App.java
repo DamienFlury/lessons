@@ -10,10 +10,21 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) {
         try {
+            System.out.println();
 
-            var dbAccess = new DatabaseAccessMdb();
-            var jokeBook = new JokeBook(dbAccess);
+            System.out.println("MySql Data");
+            System.out.println("===========");
+            var dbAccessMySql = new DatabaseAccess();
+            var jokeBook = new JokeBook(dbAccessMySql);
             jokeBook.print();
+
+            System.out.println();
+
+            System.out.println("Access Data");
+            System.out.println("===========");
+            var dbAccessAccess = new DatabaseAccessMdb();
+            var jokeBook2 = new JokeBook(dbAccessAccess);
+            jokeBook2.print();
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

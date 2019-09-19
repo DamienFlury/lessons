@@ -5,18 +5,12 @@ import java.sql.SQLException;
 
 public class JokeFillerMdb {
 
-    public static void fillJoke(Joke joke, ResultSet entry) throws SQLException {
-        joke.setupJoke(
-                entry.getInt("id"),
-                entry.getString("text"),
+    public static Joke getJoke(ResultSet entry) throws SQLException {
+        return new Joke(
+                entry.getInt("jokeId"),
+                entry.getString("content"),
                 entry.getDate("date"),
                 entry.getInt("rating")
         );
-    }
-
-    public static Joke createJokeObjectJavaIsACunt(ResultSet entry) throws SQLException {
-        var joke = new Joke();
-        fillJoke(joke, entry);
-        return joke;
     }
 }
