@@ -1,5 +1,5 @@
 
-pub fn bubble_sort<T: PartialOrd>(array: &mut [T]) -> &[T] {
+pub fn bubble_sort<T: PartialOrd>(array: &mut [T]){
     let length = array.len();
     for i in (0..length - 1).rev() {
         for j in i..length - 1 {
@@ -8,18 +8,16 @@ pub fn bubble_sort<T: PartialOrd>(array: &mut [T]) -> &[T] {
             }
         }
     }
-    array
 }
 
-pub fn selection_sort<T: PartialOrd>(array: &mut [T]) -> &[T] {
+pub fn selection_sort<T: PartialOrd>(array: &mut [T]){
     for i in 0..array.len() {
         let lowest_index = get_lowest_index(&array[i..array.len()]);
         array.swap(i, i + lowest_index);
     }
-    array
 }
 
-pub fn insertion_sort<T: PartialOrd>(array: &mut [T]) -> &[T] {
+pub fn insertion_sort<T: PartialOrd>(array: &mut [T]) {
     for i in 0..array.len() {
         for j in (0..i).rev() {
             if array[j] >= array[j + 1] {
@@ -27,7 +25,6 @@ pub fn insertion_sort<T: PartialOrd>(array: &mut [T]) -> &[T] {
             }
         }
     }
-    array
 }
 
 fn get_lowest_index<T: PartialOrd>(slice: &[T]) -> usize {

@@ -8,6 +8,26 @@ public class Joke {
     private Date date;
     private int rating;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public Joke(String text, Date date, int rating) {
+        this(0, text, date, rating);
+    }
+
     public Joke(int id, String text, Date date, int rating) {
         this.id = id;
         this.text = text;

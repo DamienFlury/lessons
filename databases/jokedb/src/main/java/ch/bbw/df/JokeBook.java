@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JokeBook {
-    private List<Joke> jokes;
-    public JokeBook(IDatabaseAccess dao) throws SQLException, ClassNotFoundException {
-        jokes = dao.getAllJokes();
+    private IDatabaseAccess dao;
+    public JokeBook(IDatabaseAccess dao) {
+        this.dao = dao;
     }
 
     public void print() {
+        var jokes = dao.getAllJokes();
         for(var joke: jokes) {
             joke.print();
         }
