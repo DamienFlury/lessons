@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Damien Flury
+ * Version 1,0
+ */
 public class DatabaseAccessMdb implements IDatabaseAccess {
 
     private static String connectionUrl = "jdbc:ucanaccess:///home/damienflury/JokeDB.accdb";

@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Damien Flury
+ * Version 1,0
+ */
 public class DatabaseAccess implements IDatabaseAccess {
 
     private static String connectionUrl = "jdbc:mysql://localhost/jokedb?serverTimezone=UTC";

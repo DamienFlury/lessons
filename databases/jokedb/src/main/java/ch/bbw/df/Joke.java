@@ -2,6 +2,10 @@ package ch.bbw.df;
 
 import java.util.Date;
 
+/**
+ * Damien Flury
+ * Version 1,0
+ */
 public class Joke {
     private int id;
     private String text;

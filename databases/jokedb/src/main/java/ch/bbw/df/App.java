@@ -3,7 +3,8 @@ package ch.bbw.df;
 import java.util.Date;
 
 /**
- * Hello world!
+ * Damien Flury
+ * Version 1,0
  */
 public class App {
     public static void main(String[] args) {

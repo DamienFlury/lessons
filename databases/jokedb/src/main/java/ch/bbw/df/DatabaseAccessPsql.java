@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Damien Flury
+ * Version 1,0
+ */
 public class DatabaseAccessPsql implements IDatabaseAccess {
 
     private static String connectionUrl = "jdbc:postgresql:jokedb?user=testuser&password=1234";
