@@ -22,7 +22,7 @@ public class DatabaseAccessPsql implements IDatabaseAccess {
                 try(var resultSet = statement.executeQuery("select * from joke")) {
                     var result = new ArrayList<Joke>();
                     while(resultSet.next()){
-                        result.add(JokeFiller.getJoke(resultSet));
+                        result.add(JokeFillerPsql.getJoke(resultSet));
                     }
                     return result;
                 }

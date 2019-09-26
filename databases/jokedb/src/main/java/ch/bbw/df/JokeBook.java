@@ -1,9 +1,5 @@
 package ch.bbw.df;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class JokeBook {
     private IDatabaseAccess dao;
     public JokeBook(IDatabaseAccess dao) {
