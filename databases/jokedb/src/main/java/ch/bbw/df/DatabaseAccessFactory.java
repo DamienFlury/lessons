@@ -8,6 +8,8 @@ public class DatabaseAccessFactory {
                 return new DatabaseAccess();
             case "ACCESS":
                 return new DatabaseAccessMdb();
+            case "POSTGRES":
+                return new DatabaseAccessPsql();
             default:
                 return new DatabaseAccess();
         }

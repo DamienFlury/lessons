@@ -30,7 +30,14 @@ public class App {
             var jokeBook2 = new JokeBook(dbAccessAccess);
             jokeBook2.print();
 
+            System.out.println();
+            System.out.println("Postgresql");
+            System.out.println("======");
 
+            var dbAccessPostgres = DatabaseAccessFactory.getAccessOn("POSTGRES");
+            dbAccessPostgres.addJoke(new Joke("Meme", new Date(), 1));
+            var jokeBook3 = new JokeBook(dbAccessPostgres);
+            jokeBook3.print();
 
     }
 }

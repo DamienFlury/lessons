@@ -6,18 +6,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseAccess implements IDatabaseAccess {
+public class DatabaseAccessPsql implements IDatabaseAccess {
 
-    private static String connectionUrl = "jdbc:mysql://localhost/jokedb?serverTimezone=UTC";
+    private static String connectionUrl = "jdbc:postgresql:jokedb?user=testuser&password=1234";
 
     @Override
     public List<Joke> getAllJokes() {
-        try (var connection = DriverManager.getConnection(connectionUrl, "testuser", "")) {
-            try (var stmt = connection.createStatement()) {
-                try (var entries = stmt.executeQuery("SELECT * FROM joke")) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        try(var connection = DriverManager.getConnection(connectionUrl)) {
+            try(var statement = connection.createStatement()) {
+                try(var resultSet = statement.executeQuery("select * from joke")) {
                     var result = new ArrayList<Joke>();
-                    while (entries.next()) {
-                        result.add(JokeFiller.getJoke(entries));
+                    while(resultSet.next()){
+                        result.add(JokeFiller.getJoke(resultSet));
                     }
                     return result;
                 }
@@ -31,13 +36,14 @@ public class DatabaseAccess implements IDatabaseAccess {
     @Override
     public void addJoke(Joke joke) {
         var sql = "INSERT INTO joke (text, date, rating) VALUES (?, ?, ?)";
-        try (var connection = DriverManager.getConnection(connectionUrl, "testuser", "")) {
+        try (var connection = DriverManager.getConnection(connectionUrl)) {
             try (var statement = connection.prepareStatement(sql)) {
                 statement.setString(1, joke.getText());
                 statement.setDate(2, new Date(joke.getDate().getTime()));
                 statement.setInt(3, joke.getRating());
                 statement.executeUpdate();
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,13 +51,12 @@ public class DatabaseAccess implements IDatabaseAccess {
 
     @Override
     public void removeJokeById(int id) {
-        try (var connection = DriverManager.getConnection(connectionUrl, "testuser", "")) {
+        try (var connection = DriverManager.getConnection(connectionUrl)) {
                 var sql = "DELETE from joke where id = ?";
                 try (var statement = connection.prepareStatement(sql)) {
                     statement.setInt(1, id);
                     statement.executeUpdate();
                 }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
