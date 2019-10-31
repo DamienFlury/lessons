@@ -8,16 +8,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee")
-@NamedQuery(name = "Employee.findAll", query = "SELECT e from employee e")
+@NamedQuery(name = "Employee.findAll", query = "SELECT e from Employee e")
 public class Employee {
     @Id
     @Column(name = "id", unique = true)
     private int id;
 
-    @Column(name = "firstname")
+    @Column(name = "firstName")
     private String firstName;
 
-    @Column(name = "lastname")
+    @Column(name = "lastName")
     private String lastName;
 
     @Column(name = "dept_id")
