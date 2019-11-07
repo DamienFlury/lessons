@@ -1,4 +1,4 @@
-package ch.bbw.df.entites;
+package ch.bbw.df.entities;
 
 import javax.persistence.*;
 
