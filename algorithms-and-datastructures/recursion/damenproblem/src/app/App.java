@@ -1,13 +1,15 @@
 package app;
 
+import java.util.Arrays;
+
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         var board = new boolean[8][];
         for(var i = 0; i < board.length; i++) {
             board[i] = new boolean[8];
         }
         // board[0][0] = true;
-        System.out.println(isValid(board, 1, 0));
+        // System.out.println(isValid(board, 1, 0));
         damenproblem(board, 0);
         printBoard(board);
     }
@@ -29,27 +31,24 @@ public class App {
 
     private static boolean isValid(boolean[][] board, int x, int y) {
         for(var i = 0; i < 8; i++) {
-            if(i == x && i == y) {
-                continue;
-            }
-            if(board[i][y]) {
+            // if(i != x && board[y][i]) {
+            //     return false;
+            // }
+            if(i != y && board[i][x]) {
                 return false;
             }
-            if(board[x][i]) {
+            // printBoard(board);
+            // System.out.println("[" + x + ", " + y + "]");
+            if(x + i < 8 && y + i < 8 && board[y + i][x + i]) {
                 return false;
             }
-            printBoard(board);
-            System.out.println("[" + x + ", " + y + "]");
-            if(x + i < 8 && y + i < 8 && board[x + i][y + i]) {
+            if(x - i >= 0 && y - i >= 0 && board[y - i][x - i]) {
                 return false;
             }
-            if(x - i >= 0 && y - i >= 0 && board[x - i][y - i]) {
+            if(x + i < 8 && y - i >= 0 && board[y - i][x + i]) {
                 return false;
             }
-            if(x + i < 8 && y - i >= 0 && board[x + i][y - i]) {
-                return false;
-            }
-            if(x - i >= 0 && y + i < 8 && board[x - i][y + i]) {
+            if(x - i >= 0 && y + i < 8 && board[y + i][x - i]) {
                 return false;
             }
         }
@@ -60,17 +59,28 @@ public class App {
         // }
     }
 
-    public static void damenproblem(boolean[][] board, int current) {
-        if(current == 5) {
-            return;
+    public static boolean[][] damenproblem(boolean[][] board, int current) {
+        if(current == 8) {
+            return board;
         }
         for(var i = 0; i < 8; i++) {
-            if(isValid(board, current, i)) {
-                System.out.println(current + ", " + i);
-                board[current][i] = true;
-                damenproblem(board, current + 1);
+            if(isValid(board, i, current)) {
+                var newBoard = clone(board);
+                newBoard[current][i] = true;
+                return damenproblem(newBoard, current + 1);
             }
-            // board[current][i] = false;
         }
+        return board;
+    }
+
+    public static boolean[][] clone(boolean[][] array) {
+        var current = new boolean[8][];
+        for(var i = 0; i < 8; i++) {
+            current[i] = new boolean[8];
+            for(var j = 0; j < 8; j++) {
+                current[i][j] = array[i][j];
+            }
+        }
+        return current;
     }
 }

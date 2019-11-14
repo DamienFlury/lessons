@@ -8,13 +8,13 @@ version '1.0-SNAPSHOT'
 apply plugin: 'application'
 
 
-sourceCompatibility = 12
+sourceCompatibility = 13
 
 repositories {
     mavenCentral()
 }
 
-mainClassName = "ch.bbw.df.Application  "
+mainClassName = "ch.bbw.df.Application"
 
 
 dependencies {

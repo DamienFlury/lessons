@@ -2,7 +2,7 @@
 <persistence version="2.1"
              xmlns="http://xmlns.jcp.org/xml/ns/persistence">
     <persistence-unit name="MyPersistenceUnit" transaction-type="RESOURCE_LOCAL">
-        <class>ch.bbw.df.entities.Food</class>
+        <class>foodtracker.models.Food</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
