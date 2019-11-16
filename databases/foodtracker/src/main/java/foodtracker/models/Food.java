@@ -3,9 +3,22 @@ package foodtracker.models;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name = "food")
 @NamedQuery(name = "Food.findAll", query = "select f from Food f")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder 
+@ToString
 public class Food {
 
     @Id
@@ -19,36 +32,18 @@ public class Food {
     @Column(name = "name", nullable = false)
     private String name;
 
-    public String getName() {
-        return name;
-    }
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Customer customer;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public int getId() {
-        return id;
-    }
+    
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Food{" +
-                "id=" + id +
-                "price=" + price +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "Food{" +
+    //             "id=" + id +
+    //             "price=" + price +
+    //             '}';
+    // }
 
 }
