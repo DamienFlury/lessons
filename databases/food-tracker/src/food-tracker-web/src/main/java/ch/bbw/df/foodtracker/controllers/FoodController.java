@@ -2,6 +2,7 @@ package ch.bbw.df.foodtracker.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class FoodController {
     public FoodController(FoodRepository repository) {
         this.repository = repository;
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("/foods")
     public List<Food> hello() {
         return repository.getAll();

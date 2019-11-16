@@ -35,23 +35,8 @@ public class FoodRepository implements AutoCloseable {
         return manager.createQuery("select c from Customer c").getResultList();
     }
 
-    public Food createFood() {
-        var customer = new Customer();
-        customer.setName("Peter Parker");
-        var food = new Food();
-        food.setName("Apple");
-        food.setPrice(2.50);
-        var list = new ArrayList<Food>();
-        list.add(food);
-        // customer.setFood(list);
-
-        manager.getTransaction().begin();
-        var newCustomer = manager.merge(customer);
-        food.setCustomer(newCustomer);
-        var newFood = manager.merge(food);
-        manager.getTransaction().commit();
-        return newFood;
-
+    public Food createFood(Food food) {
+        return manager.merge(food);
     }
 
     @Override
