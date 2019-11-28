@@ -16,12 +16,16 @@ const Wrapper = styled.div`
 
 const Foods: React.FC = () => {
   const [foods, setFoods] = useState<Food[]>([]);
-  console.log(foods.map((food) => food.id));
   useEffect(() => {
     const fetchFoods = async () => {
-      const response = await fetch('http://localhost:8080/foods');
-      const data = await response.json();
-      setFoods(data);
+      try {
+        const response = await fetch('http://localhost:8080/foods');
+        const data = await response.json();
+        console.log(data);
+        setFoods(data);
+      } catch {
+        console.log('error fetching foods');
+      }
     };
     fetchFoods();
   }, []);
