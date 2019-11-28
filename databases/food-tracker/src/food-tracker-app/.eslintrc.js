@@ -21,11 +21,16 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'react-hooks',
   ],
   rules: {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     'no-undef': 'off',
     'no-unused-vars': 'off',
+    'react/prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-nested-ternary': 'off',
   },
   "settings": {
     "import/resolver": {

@@ -30,14 +30,9 @@ public class App {
 
     private static boolean isValid(boolean[][] board, int x, int y) {
         for(var i = 0; i < board.length; i++) {
-            // if(i != x && board[y][i]) {
-            //     return false;
-            // }
             if(i != y && board[i][x]) {
                 return false;
             }
-            // printBoard(board);
-            // System.out.println("[" + x + ", " + y + "]");
             if(x + i < board.length && y + i < board.length && board[y + i][x + i]) {
                 return false;
             }
@@ -52,10 +47,6 @@ public class App {
             }
         }
         return true;
-
-        // for(var i = x; i >= 0; i--) {
-        //     for(var j 0)
-        // }
     }
 
     public static Result damenproblem(boolean[][] board, int current) {

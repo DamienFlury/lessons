@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import ch.bbw.df.foodtracker.models.Customer;
 import ch.bbw.df.foodtracker.models.Food;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
