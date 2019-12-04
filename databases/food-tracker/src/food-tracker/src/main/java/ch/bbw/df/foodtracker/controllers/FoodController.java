@@ -17,20 +17,17 @@ import ch.bbw.df.foodtracker.repositories.CustomerRepository;
 import ch.bbw.df.foodtracker.repositories.FoodRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class FoodController {
     @Autowired
     private FoodRepository foodRepository;
 
-    @Autowired
-    private CustomerRepository customerRepository;
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/foods")
     public ResponseEntity<?> getFoods() {
         return ResponseEntity.ok(foodRepository.findAll());
     }
     
-    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/foods")
     public Food postFood(@RequestBody Food food) {
         if(food.getId() != null && foodRepository.findById(food.getId()) != null) {
@@ -39,7 +36,6 @@ public class FoodController {
         return foodRepository.save(food);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/foods/{id}")
     public void deleteFood(@PathVariable int id) {
         foodRepository.deleteById(id);

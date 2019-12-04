@@ -32,7 +32,6 @@ public class CustomerController {
     }
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:3000")
     public Customer postCustomer(@RequestBody Customer customer) {
         if (customer.getId() != null && customerRepository.findById(customer.getId()) != null) {
             return null;
