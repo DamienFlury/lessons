@@ -3,7 +3,12 @@ package ch.bbw.df.foodtracker.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.bbw.df.foodtracker.models.Customer;
@@ -22,21 +27,28 @@ public class FoodController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/foods")
     public ResponseEntity<?> getFoods() {
-
-        var customer = Customer
-            .builder()
-            .firstName("Test")
-            .lastName("Yeet")
-            .build();
-        var food = Food
-            .builder()
-            .name("Bananas")
-            .price(1.95)
-            .customer(customer)
-            .build();
-
-        customerRepository.save(customer);
-        foodRepository.save(food);
         return ResponseEntity.ok(foodRepository.findAll());
+    }
+    
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/foods")
+    public Food postFood(@RequestBody Food food) {
+        if(foodRepository.findById(food.getId()) != null) {
+            return null;
+        }
+        return foodRepository.save(food);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/foods/{id}")
+    public void deleteFood(@PathVariable int id) {
+        foodRepository.deleteById(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PutMapping("foods/{id}")
+    public Food updateFood(@PathVariable int id, @RequestBody Food food) {
+        food.setId(id);
+        return foodRepository.save(food);
     }
 }
