@@ -33,7 +33,7 @@ public class FoodController {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/foods")
     public Food postFood(@RequestBody Food food) {
-        if(foodRepository.findById(food.getId()) != null) {
+        if(food.getId() != null && foodRepository.findById(food.getId()) != null) {
             return null;
         }
         return foodRepository.save(food);
