@@ -7,7 +7,7 @@ const AppBar = styled.nav`
     position: sticky;
     top: 0;
     align-items: center;
-    box-shadow: 0 2px 3px #595959;
+    box-shadow: 0 1px 2px #595959;
 `;
 
 export default AppBar;

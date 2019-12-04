@@ -5,6 +5,7 @@ import Foods from './components/Foods';
 import AppBar from './styled-components/AppBar';
 import NavLink from './styled-components/NavLink';
 import Customers from './components/Customers';
+import CustomerDetail from './components/CustomerDetail';
 
 const Title = styled.div`
   font-size: 2rem;
@@ -20,6 +21,9 @@ const App: React.FC = () => (
         <NavLink to="/customers">Customers</NavLink>
       </AppBar>
       <Switch>
+        <Route path="/customers/:id">
+          <CustomerDetail />
+        </Route>
         <Route path="/customers">
           <Customers />
         </Route>
