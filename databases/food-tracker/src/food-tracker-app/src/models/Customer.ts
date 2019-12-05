@@ -1,5 +1,5 @@
 type Customer = {
-    id: number,
+    id?: number,
     firstName: string,
     lastName: string,
 };

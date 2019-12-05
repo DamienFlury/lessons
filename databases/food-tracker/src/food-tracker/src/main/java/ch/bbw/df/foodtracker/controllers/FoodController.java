@@ -1,5 +1,7 @@
 package ch.bbw.df.foodtracker.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.bbw.df.foodtracker.models.Customer;
 import ch.bbw.df.foodtracker.models.Food;
+import ch.bbw.df.foodtracker.models.FoodType;
 import ch.bbw.df.foodtracker.repositories.CustomerRepository;
 import ch.bbw.df.foodtracker.repositories.FoodRepository;
+import ch.bbw.df.foodtracker.repositories.FoodTypeRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class FoodController {
+
+    @Autowired
+    private FoodTypeRepository foodTypeRepository;
     @Autowired
     private FoodRepository foodRepository;
 
@@ -33,6 +40,12 @@ public class FoodController {
         if(food.getId() != null && foodRepository.findById(food.getId()) != null) {
             return null;
         }
+        // var foodTypes = new ArrayList<FoodType>();
+        // foodTypes.add(FoodType.builder().name("lol").build());
+
+        // foodTypeRepository.saveAll(foodTypes);
+            
+        // food.setFoodTypes(foodTypes);
         return foodRepository.save(food);
     }
 

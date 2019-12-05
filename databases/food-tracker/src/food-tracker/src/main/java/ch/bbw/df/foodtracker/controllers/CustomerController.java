@@ -1,6 +1,7 @@
 package ch.bbw.df.foodtracker.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -48,6 +49,11 @@ public class CustomerController {
     @DeleteMapping("{id}")
     public void deleteCustomer(@PathVariable int id) {
         customerRepository.deleteById(id);
+    }
+
+    @GetMapping("{id}")
+    public Optional<Customer> getById(@PathVariable int id) {
+        return customerRepository.findById(id);
     }
 
 }
