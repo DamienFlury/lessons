@@ -2,11 +2,13 @@ package ch.bbw.df.foodtracker.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,4 +34,7 @@ public class Customer {
 
     @OneToMany(orphanRemoval = true)
     private List<Food> foods;
+
+    @OneToOne(orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private Address address;
 }

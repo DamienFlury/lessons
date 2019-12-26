@@ -1,0 +1,11 @@
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App.deps.json
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App.runtimeconfig.json
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App.runtimeconfig.dev.json
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App.dll
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/bin/Debug/netcoreapp3.1/BinaryTree.App.pdb
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/obj/Debug/netcoreapp3.1/BinaryTree.App.csprojAssemblyReference.cache
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/obj/Debug/netcoreapp3.1/BinaryTree.App.AssemblyInfoInputs.cache
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/obj/Debug/netcoreapp3.1/BinaryTree.App.AssemblyInfo.cs
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/obj/Debug/netcoreapp3.1/BinaryTree.App.dll
+/home/damienflury/source/lessons/algorithms-and-datastructures/BinaryTree/src/BinaryTree.App/obj/Debug/netcoreapp3.1/BinaryTree.App.pdb

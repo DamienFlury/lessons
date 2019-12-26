@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Customer from '../models/Customer';
 import Paper from '../styled-components/Paper';
-import List from '../styled-components/List';
-import ListItem from '../styled-components/ListItem';
 import FoodForm from './FoodForm';
 import Food from '../models/Food';
 
@@ -24,7 +22,6 @@ const CustomerDetail: React.FC = () => {
       price,
       foodTypes,
     };
-    console.log(food);
     const response = await fetch('http://localhost:8080/foods', {
       method: 'post',
       headers: {
@@ -33,7 +30,6 @@ const CustomerDetail: React.FC = () => {
       body: JSON.stringify(food),
     });
     const data = await response.json();
-    console.log(data);
   };
 
   useEffect(() => {
@@ -60,6 +56,17 @@ const CustomerDetail: React.FC = () => {
         {' '}
         {customer.lastName}
       </h3>
+      Address:
+      {' '}
+      {customer.address
+      && (
+      <div>
+        {customer.address.street}
+,
+        {' '}
+        {customer.address.city}
+      </div>
+      )}
       <FoodForm onSubmit={handleSubmit} />
     </StyledPaper>
   );

@@ -59,6 +59,9 @@ const Foods: React.FC = () => {
               (
               {food.foodTypes && food.foodTypes.map((ft) => ft.name).join(', ')}
 )
+              {' '}
+              {food.customer && `[${food.customer.firstName}${food.customer.lastName
+                && ` ${food.customer.lastName}`}]`}
               <Spacer />
               <Button onClick={() => deleteFood(food.id)}>Delete</Button>
             </ListItem>

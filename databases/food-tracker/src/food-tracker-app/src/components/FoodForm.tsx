@@ -34,7 +34,11 @@ const FoodForm: React.FC<Props> = ({ onSubmit }) => {
         });
       }}
       >
-        <TextField value={name} onChange={(e) => setName(e.target.value)} />
+        <TextField
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+        />
         <TextField
           value={price}
           onChange={(e) => setPrice(+e.target.value)}
@@ -44,6 +48,7 @@ const FoodForm: React.FC<Props> = ({ onSubmit }) => {
         <TextField
           value={foodType}
           onChange={(e) => setFoodType(e.target.value)}
+          placeholder="Food Types"
         />
         <Button type="submit">Submit</Button>
       </form>
