@@ -9,9 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class JsonMashupApplication {
 
 	public static void main(String[] args) {
-
 	  SpringApplication.run(JsonMashupApplication.class, args);
-    System.out.println(getImageOfTheDay().getUrl());
 	}
 
 	public static ImageOfTheDay getImageOfTheDay() {

@@ -4,8 +4,9 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Data
-@Builder
+@NoArgsConstructor
+@Getter
+@Setter
 public class ImageOfTheDay implements Serializable {
   private String copyright;
   private String date;

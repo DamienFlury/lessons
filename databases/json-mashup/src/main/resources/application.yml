@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:mysql://localhost:3306/jsonmashup"
+    username: "json-parser"
+    password: "1234"
+    driver-class-name: com.mysql.cj.jdbc.Driver
