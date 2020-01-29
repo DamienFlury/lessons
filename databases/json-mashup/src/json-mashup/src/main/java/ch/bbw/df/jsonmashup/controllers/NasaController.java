@@ -1,15 +1,19 @@
 package ch.bbw.df.jsonmashup.controllers;
 
+import ch.bbw.df.jsonmashup.models.User;
 import ch.bbw.df.jsonmashup.nasa.ImageOfTheDay;
 import ch.bbw.df.jsonmashup.nasa.MarsPhoto;
 import ch.bbw.df.jsonmashup.nasa.MarsRoverPhotos;
+import ch.bbw.df.jsonmashup.repositories.UserRepository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +24,13 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/nasa")
 public class NasaController {
+
+  @Autowired
+  private UserRepository userRepository;
+
   @GetMapping
   public ImageOfTheDay getImageOfTheDay() {
+    userRepository.save(User.builder().date(LocalDateTime.now()).build());
     RestTemplate restTemplate = new RestTemplate();
     ImageOfTheDay result = restTemplate.getForObject(
         "https://api.nasa.gov/planetary/apod?api_key=wAICQ2fbFNssEofWabFJHJQOc71U54NC6Ssq8rHs", ImageOfTheDay.class);
