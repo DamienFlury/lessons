@@ -14,8 +14,8 @@ const GlobalStyle = createGlobalStyle`
 
 const App: React.FC = () => (
   <div>
-    <AppBar />
     <GlobalStyle />
+    <AppBar />
     <NasaImage />
     <CuriosityPhoto />
   </div>
